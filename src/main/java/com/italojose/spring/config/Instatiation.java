@@ -11,6 +11,7 @@ import com.italojose.spring.Repository.PostRepository;
 import com.italojose.spring.Repository.UserRepository;
 import com.italojose.spring.domain.Post;
 import com.italojose.spring.domain.User;
+import com.italojose.spring.dto.AuthorDTO;
 
 @Configuration
 public class Instatiation implements CommandLineRunner {
@@ -36,8 +37,8 @@ public class Instatiation implements CommandLineRunner {
 		
 		userRepository.saveAll(Arrays.asList(maria,alex,carlos,italo));
 		
-		Post postMaria = new Post(null, sdf.parse("31/10/2010"), "Maria Silva", "I'll be in Dublin in 2025", maria);
-		Post postItalo = new Post(null, sdf.parse("06/03/2019"), "Italo Jose", "I'll be in Galway in 2025", italo);
+		Post postMaria = new Post(null, sdf.parse("31/10/2010"), "Maria Silva", "I'll be in Dublin in 2025", new AuthorDTO(maria));
+		Post postItalo = new Post(null, sdf.parse("06/03/2019"), "Italo Jose", "I'll be in Galway in 2025", new AuthorDTO(italo));
 		
 		postRepository.saveAll(Arrays.asList(postMaria,postItalo));
 	}
